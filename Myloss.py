@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.nn.nn.functional.interpolate as F
+import torch.nn.nn.functional as F
 import math
 from torchvision.models.vgg import vgg16
 
