@@ -4,10 +4,10 @@ parser = argparse.ArgumentParser(description="Train_Test")
 
 ### Training Settings
 # General Parameters
-parser.add_argument('--lr', type=float, default=0.0001)
+parser.add_argument('--lr', type=float, default=0.000005)
 parser.add_argument('--weight_decay', type=float, default=0.0001)
 parser.add_argument('--grad_clip_norm', type=float, default=0.1)
-parser.add_argument('--num_epochs', type=int, default=100)
+parser.add_argument('--num_epochs', type=int, default=250)
 parser.add_argument('--train_batch_size', type=int, default=6)
 parser.add_argument('--val_batch_size', type=int, default=8)
 parser.add_argument('--num_workers', type=int, default=4)
