@@ -22,7 +22,7 @@ def exposure_enhancement(image):
 
 # Folder containing images
 input_folder = 'output_images'
-output_folder = 'after exposure'
+output_folder = 'after_exposure'
 
 # Create output folder if it doesn't exist
 if not os.path.exists(output_folder):

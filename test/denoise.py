@@ -8,8 +8,8 @@ def denoise_image(image):
     return denoised_image
 
 # Folder containing images
-input_folder = 'after exposure'
-output_folder = 'after denoise'
+input_folder = 'output_images'
+output_folder = 'after_denoise'
 
 # Create output folder if it doesn't exist
 if not os.path.exists(output_folder):
