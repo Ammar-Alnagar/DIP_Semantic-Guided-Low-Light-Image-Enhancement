@@ -36,7 +36,7 @@ def calculate_ssim(image1_path, image2_path):
 def main():
     # image_folder1 = "test_output"
     image_folder1 = "data/test_data"
-    image_folder2 = "test/after denoise"
+    image_folder2 = "after_exposure"
 
     image_files1 = os.listdir(image_folder1)
     image_files2 = os.listdir(image_folder2)
