@@ -1,11 +1,8 @@
-
-
-
 from math import log10, sqrt 
 import cv2 
 import numpy as np 
 import os
-  
+
 def PSNR(original, compressed): 
     mse = np.mean((original - compressed) ** 2) 
     if mse == 0:  
@@ -13,33 +10,29 @@ def PSNR(original, compressed):
     max_pixel = 255.0
     psnr = 20 * log10(max_pixel / sqrt(mse)) 
     return psnr 
-  
-def calculate_psnr(original_path, compressed_path):
-    original = cv2.imread(original_path)
-    compressed = cv2.imread(compressed_path, 1)
-    
-    # Resize compressed image to match the dimensions of the original image
-    compressed = cv2.resize(compressed, (original.shape[1], original.shape[0]))
-    
-    value = PSNR(original, compressed) 
-    return value
+
+def calculate_PSNR_for_folder(original_folder, compressed_folder):
+    original_images = os.listdir(original_folder)
+    compressed_images = os.listdir(compressed_folder)
+
+    for original_image_name in original_images:
+        if original_image_name in compressed_images:
+            original_path = os.path.join(original_folder, original_image_name)
+            compressed_path = os.path.join(compressed_folder, original_image_name)
+
+            original = cv2.imread(original_path)
+            compressed = cv2.imread(compressed_path, 1)
+
+            if original.shape[:2] == compressed.shape[:2]:  # Ensure same dimensions
+                value = PSNR(original, compressed) 
+                print(f"PSNR value for {original_image_name} is {value} dB") 
+            else:
+                print(f"Dimensions of {original_image_name} and corresponding compressed image do not match. Skipping...")
 
 def main(): 
     original_folder = "data/test_data"
-    # original_folder = "test_output"
-    compressed_folder = "test/after denoise"
-    
-    original_files = os.listdir(original_folder)
-    
-    for file in original_files:
-        original_path = os.path.join(original_folder, file)
-        compressed_path = os.path.join(compressed_folder, file)
-        
-        if os.path.isfile(compressed_path):
-            value = calculate_psnr(original_path, compressed_path)
-            print(f"PSNR value for {file} is {value} dB") 
-        else:
-            print(f"No compressed file found for {file}")
-
+    compressed_folder = "after_exposure"
+    calculate_PSNR_for_folder(original_folder, compressed_folder)
+       
 if __name__ == "__main__": 
     main()
