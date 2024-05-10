@@ -1,20 +1,3 @@
-# from skimage.metrics import structural_similarity as ssim
-# import cv2
-
-# # Load two images
-# image1 = cv2.imread('test_output/02.jpg', cv2.IMREAD_GRAYSCALE)
-# image2 = cv2.imread('test/after denoise/02.jpg', cv2.IMREAD_GRAYSCALE)
-
-# # Resize images to the same dimensions if they are not already the same
-# if image1.shape != image2.shape:
-#     image2 = cv2.resize(image2, (image1.shape[1], image1.shape[0]))
-
-# # Calculate SSIM
-# ssim_index = ssim(image1, image2)
-
-# # Print SSIM index
-# print("Structural Similarity Index (SSIM):", ssim_index)
-
 from skimage.metrics import structural_similarity as ssim
 import cv2
 import os
@@ -36,10 +19,12 @@ def calculate_ssim(image1_path, image2_path):
 def main():
     # image_folder1 = "test_output"
     image_folder1 = "data/test_data"
-    image_folder2 = "after_exposure"
+    image_folder2 = "output_images"
 
     image_files1 = os.listdir(image_folder1)
     image_files2 = os.listdir(image_folder2)
+
+    ssim_values = []
 
     for file1 in image_files1:
         if file1 in image_files2:
@@ -47,8 +32,13 @@ def main():
             image_path2 = os.path.join(image_folder2, file1)
             ssim_index = calculate_ssim(image_path1, image_path2)
             print(f"SSIM for {file1}: {ssim_index}")
+            ssim_values.append(ssim_index)
         else:
             print(f"No corresponding file found for {file1}")
+
+    # Calculate the average SSIM value
+    average_ssim = sum(ssim_values) / len(ssim_values)
+    print(f"Average SSIM: {average_ssim}")
 
 if __name__ == "__main__":
     main()
