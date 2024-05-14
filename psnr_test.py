@@ -39,7 +39,7 @@ def calculate_PSNR_for_folder(original_folder, compressed_folder):
 
 def main(): 
     original_folder = "data/test_data"
-    compressed_folder = "output_images"
+    compressed_folder = "after_exposure"
     calculate_PSNR_for_folder(original_folder, compressed_folder)
        
 if __name__ == "__main__": 

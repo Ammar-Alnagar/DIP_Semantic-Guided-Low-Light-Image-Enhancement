@@ -31,7 +31,7 @@ def process_images(folder_path, output_folder, alpha, beta):
             print(f"Processed: {filename}")
 
 # Define the folder containing the input images
-input_folder = 'test_output/'
+input_folder = 'test_output2/'
 
 # Define the folder where the processed images will be saved
 output_folder = 'output_images/'
