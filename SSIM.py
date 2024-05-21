@@ -37,8 +37,8 @@ def main():
             print(f"No corresponding file found for {file1}")
 
     # Calculate the average SSIM value
-    average_ssim = sum(ssim_values*100) / len(ssim_values)
-    print(f"Average SSIM: {average_ssim}")
+    average_ssim = sum(ssim_values) / len(ssim_values)
+    print(f"Average SSIM: {average_ssim*100}")
 
 if __name__ == "__main__":
     main()
