@@ -38,8 +38,8 @@ def run_histogram_equalization(input_folder, output_folder):
             print(f"Processed {input_path} and saved to {output_path}")
 
 # Specify the input and output folder paths
-input_folder = 'output_images'
-output_folder = 'after_HE'
+input_folder = '/after_denoise'
+output_folder = '/after_HE'
 
 # Run the function
 run_histogram_equalization(input_folder, output_folder)
