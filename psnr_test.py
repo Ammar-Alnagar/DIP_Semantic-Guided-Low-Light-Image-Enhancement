@@ -2,6 +2,7 @@ from math import log10, sqrt
 import cv2 
 import numpy as np 
 import os
+import sys
 
 def PSNR(original, compressed): 
     mse = np.mean((original - compressed) ** 2) 
@@ -34,12 +35,19 @@ def calculate_PSNR_for_folder(original_folder, compressed_folder):
             psnr_values.append(value)
 
     # Calculate the average PSNR value
-    average_psnr = np.mean(psnr_values)
-    print(f"Average PSNR value: {average_psnr} dB")
+    if psnr_values:
+        average_psnr = np.mean(psnr_values)
+        print(f"Average PSNR value: {average_psnr} dB")
+    else:
+        print("No PSNR values calculated.")
 
 def main(): 
-    original_folder = "data/test_data"
-    compressed_folder = "output_images"
+    if len(sys.argv) != 3:
+        print("Usage: python script.py original_folder compressed_folder")
+        return
+
+    original_folder = sys.argv[1]
+    compressed_folder = sys.argv[2]
     calculate_PSNR_for_folder(original_folder, compressed_folder)
        
 if __name__ == "__main__": 

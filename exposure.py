@@ -9,7 +9,7 @@ def exposure_enhancement(image):
     l, a, b = cv2.split(lab_image)
 
     # Apply histogram equalization to the L channel
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    clahe = cv2.createCLAHE(clipLimit=1.0, tileGridSize=(4, 4))
     enhanced_l = clahe.apply(l)
 
     # Merge the enhanced L channel with the original A and B channels
@@ -22,7 +22,7 @@ def exposure_enhancement(image):
 
 # Folder containing images
 input_folder = 'output_images'
-output_folder = 'after_exposure'
+output_folder = 'after_exposure_1'
 
 # Create output folder if it doesn't exist
 if not os.path.exists(output_folder):
