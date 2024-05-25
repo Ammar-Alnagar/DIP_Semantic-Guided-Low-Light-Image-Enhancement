@@ -4,11 +4,11 @@ parser = argparse.ArgumentParser(description="Train_Test")
 
 ### Training Settings
 # General Parameters
-parser.add_argument('--lr', type=float, default=0.000005)
+parser.add_argument('--lr', type=float, default=0.00005)
 parser.add_argument('--weight_decay', type=float, default=0.0001)
 parser.add_argument('--grad_clip_norm', type=float, default=0.1)
-parser.add_argument('--num_epochs', type=int, default=250)
-parser.add_argument('--train_batch_size', type=int, default=6)
+parser.add_argument('--num_epochs', type=int, default=100)
+parser.add_argument('--train_batch_size', type=int, default=8)
 parser.add_argument('--val_batch_size', type=int, default=8)
 parser.add_argument('--num_workers', type=int, default=4)
 parser.add_argument('--display_iter', type=int, default=10)
@@ -19,8 +19,8 @@ parser.add_argument("--num_of_SegClass", type=int, default=21, help='Number of S
 # Weight Parameters
 parser.add_argument('--lowlight_images_path', type=str, default="data/train_data/")
 parser.add_argument('--snapshots_folder', type=str, default="weight/")
-parser.add_argument('--load_pretrain', type=bool, default=False)
-parser.add_argument('--pretrain_dir', type=str, default="weight/Epoch99.pth")
+parser.add_argument('--load_pretrain', type=bool, default=True)
+parser.add_argument('--pretrain_dir', type=str, default="weight/")
 
 # Ablation Parameters
 parser.add_argument('--conv_type', type=str, default="dsc", choices=['dsc', 'dc', 'tc'])

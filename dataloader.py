@@ -20,8 +20,11 @@ def populate_train_list(lowlight_images_path):
 
 
 
-	image_list_lowlight = glob.glob(lowlight_images_path + "*.jpg")
-
+	# image_list_lowlight = glob.glob(lowlight_images_path + "*.jpg")
+	image_list_lowlight = glob.glob(lowlight_images_path + "*.jpg") + \
+						glob.glob(lowlight_images_path + "*.png") + \
+						glob.glob(lowlight_images_path + "*.jpeg") + \
+						glob.glob(lowlight_images_path + "*.bmp")
 	train_list = image_list_lowlight
 
 	random.shuffle(train_list)
