@@ -8,7 +8,7 @@ def print_pixel_values(image):
 
 # Load the image
 image1 = cv2.imread('01.jpg')
-image2 = cv2.imread('/after denoise/01.jpg')
+
 
 # Print pixel values
 
