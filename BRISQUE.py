@@ -5,7 +5,7 @@ import piq
 import numpy as np
 
 # Folder containing images
-folder_path = "after_HE"
+folder_path = "after_HE"  
 
 # List to store BRISQUE scores
 brisque_scores = []
