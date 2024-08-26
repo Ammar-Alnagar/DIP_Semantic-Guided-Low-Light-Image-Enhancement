@@ -15,6 +15,7 @@ def load_images_from_folder(folder):
     return images
 
 
+
 def resize_images(images):
     # Determine common dimensions among all images
     dimensions = set()
